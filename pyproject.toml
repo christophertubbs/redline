@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=69", "wheel", "build"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "redline"
+version = "0.1.0"
+description = "Simple redis cli for when redis-cli is not available"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{ name = "Christopher Tubbs" }]
+dependencies = [
+    "redis",
+    "python-dateutil",
+    "pyinstaller"
+]
+
+[project.scripts]
+redline = "redline.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["redline"]
